@@ -18,9 +18,11 @@ import retrofit2.Response;
  */
 public class SearchPresenter implements SearchContract.ActionListener {
 
-    ForsquareConnector forsquare;
+    private SearchContract.View searchView;
+    private ForsquareConnector forsquare;
 
-    public SearchPresenter(ForsquareConnector forsquare) {
+    public SearchPresenter(SearchContract.View searchView, ForsquareConnector forsquare) {
+        this.searchView = searchView;
         this.forsquare = forsquare;
     }
 
@@ -63,4 +65,6 @@ public class SearchPresenter implements SearchContract.ActionListener {
             }
         });
     }
+
+
 }

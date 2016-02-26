@@ -24,7 +24,7 @@ public class SearchActivity extends BaseActivity implements SearchContract.View 
         setContentView(R.layout.activity_search);
 
         app = (AppEnvironment) getApplication();
-        actionListener = new SearchPresenter(app.getInjection().getForsquareConnector());
+        actionListener = new SearchPresenter(this, app.getInjection().getForsquareConnector());
         searchImageButton = (ImageButton) findViewById(R.id.search_button_imagebutton);
         searchAutocompleteTextView = (SearchAutocompleteTextView) findViewById(R.id.venue_search_searchAutocompleteEditText);
 
@@ -39,6 +39,7 @@ public class SearchActivity extends BaseActivity implements SearchContract.View 
 
     public void doSearchQuery(View view) {
         actionListener.getVenues("London", searchAutocompleteTextView.getText().toString());
+        
     }
 
 
