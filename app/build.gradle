@@ -17,17 +17,42 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.yrs.forsquareintegrationexample"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
     }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            jniDebuggable true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    productFlavors {
+        dev {
+            signingConfig signingConfigs.dev_key
+            applicationId "com.yrs.forsquareintegrationexample_dev"
+
+            buildConfigField "String", "FORSQUARE_BASE_URL", '"https://api.foursquare.com/v2/venues/"'
+            buildConfigField "String", "FORSQUARE_ID", '"3M3ZLE53TJO5XNHC5U3OJP5QD4VD41IBHNTHEMIH5SRTWDPZ"'
+            buildConfigField "String", "FORSQUARE_SECRET", '"BA32VM1RRONKQQZOSZ1GRG1XKKWB4HWQTBZE1A3CWHWWABYX"'
+
+            buildConfigField "String", "FORSQUARE_VERSION", '"20130815"'
+
+            buildConfigField "String", "DEV_TAG", '"Y_"'
+
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "1g"
     }
 }
 
@@ -35,4 +60,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
 }
