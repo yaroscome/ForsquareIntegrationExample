@@ -21,5 +21,12 @@ public interface ForsquareConnector {
             @Query("query") String query
     );
 
-
+//    @GET("suggestcompletion")
+//    Call<VenuesSuggestCompletionResponse> getSuggestCompletion(
+//            @Query("client_id") String forsquare_id,
+//            @Query("client_secret") String forsquare_secret,
+//            @Query("v") String version,
+//            @Query("near") String near,
+//            @Query("query") String query
+//    );
 }
