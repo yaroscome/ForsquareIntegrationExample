@@ -29,7 +29,7 @@ public class SearchPresenter implements SearchContract.ActionListener {
 
     @Override
     public void getVenues(String near, String query) {
-        String limit = "10";
+        String limit = "18";
 
         Call<SearchVenuesNearPlaceResponse> searchCall = forsquare.searchVenuesNearPlace(
                 BuildConfig.FORSQUARE_ID,

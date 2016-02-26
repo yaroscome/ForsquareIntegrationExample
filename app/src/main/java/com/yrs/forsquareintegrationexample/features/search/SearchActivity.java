@@ -47,12 +47,7 @@ public class SearchActivity extends BaseActivity implements SearchContract.View 
 
     public void doSearchQuery(View view) {
         actionListener.getVenues("London", searchAutocompleteTextView.getText().toString());
-
-
-
     }
-
-
 
 
 
@@ -60,14 +55,17 @@ public class SearchActivity extends BaseActivity implements SearchContract.View 
 
     @Override
     public void showResults(List<Venue> venuesList) {
-        searchListViewAdapter = new SearchListViewAdapter(
-                this,
-                android.R.layout.simple_list_item_1,
-                venuesList);
+        if(venuesList != null && !venuesList.isEmpty()) {
+            searchListViewAdapter = new SearchListViewAdapter(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    venuesList);
 
-        venuesListView.setAdapter(searchListViewAdapter);
+            venuesListView.setAdapter(searchListViewAdapter);
 
-        searchListViewAdapter.notifyDataSetChanged();
+            searchListViewAdapter.notifyDataSetChanged();
+        }
+
 
     }
 }
