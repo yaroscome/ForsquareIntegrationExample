@@ -65,7 +65,5 @@ public class SearchActivity extends BaseActivity implements SearchContract.View 
 
             searchListViewAdapter.notifyDataSetChanged();
         }
-
-
     }
 }
