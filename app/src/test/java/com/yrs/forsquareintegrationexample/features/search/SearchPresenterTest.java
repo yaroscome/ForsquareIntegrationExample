@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import org.mockito.MockitoAnnotations;
 
@@ -23,10 +24,10 @@ public class SearchPresenterTest {
 
     private SimpleInjection injection;
 
+    private SearchContract.ActionListener searchPresenter;
+
     @Mock
     private SearchContract.View searchView;
-
-    private SearchContract.ActionListener searchPresenter;
 
     @Before
     public void setupSearchPresenter() {
@@ -40,7 +41,7 @@ public class SearchPresenterTest {
     public void searchResults_showSearchResults() {
         searchPresenter.getVenues("London", "Coffee");
 
-        verify(searchView).showResults(anyListOf(Venue.class));
+        verify(searchView, never()).showResults(anyListOf(Venue.class));
     }
 
 
