@@ -21,6 +21,7 @@ public class SearchPresenter implements SearchContract.ActionListener {
     private SearchContract.View searchView;
     private ForsquareConnector forsquare;
 
+
     public SearchPresenter(SearchContract.View searchView, ForsquareConnector forsquare) {
         this.searchView = searchView;
         this.forsquare = forsquare;
@@ -48,9 +49,7 @@ public class SearchPresenter implements SearchContract.ActionListener {
                     SearchVenuesNearPlaceResponse body = response.body();
 
                     List<Venue> venuesList = response.body().getResponse().getVenueList();
-                    for(Venue v: venuesList) {
-                        Log.d(BuildConfig.DEV_TAG, ": " + v);
-                    }
+                    searchView.showResults(venuesList);
 
 
                 } else {
