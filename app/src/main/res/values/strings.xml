@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ForsquareIntegrationExample</string>
+
+
+    <string name="search_places_hint"> Search for new places</string>
 </resources>
