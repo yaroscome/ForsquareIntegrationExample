@@ -8,7 +8,7 @@
                 android:layout_height="wrap_content">
 
     <com.yrs.forsquareintegrationexample.ui.SearchAutocompleteTextView
-        android:id="@+id/venue_search_editText"
+        android:id="@+id/venue_search_searchAutocompleteEditText"
         android:completionThreshold="3"
         android:layout_margin="15dp"
         android:padding="15dp"
@@ -33,13 +33,13 @@
         <!--android:visibility="gone" />-->
 
     <ImageButton
-        android:id="@+id/search_button_imageview"
+        android:id="@+id/search_button_imagebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/venue_search_editText"
+        android:layout_alignRight="@+id/venue_search_searchAutocompleteEditText"
         android:src="@drawable/search_edittext_background"
         android:background="@color/white"
-        android:layout_alignTop="@+id/venue_search_editText"
+        android:layout_alignTop="@+id/venue_search_searchAutocompleteEditText"
         android:padding="14dp"
         android:onClick="doSearchQuery" />
 
